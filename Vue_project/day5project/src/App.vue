@@ -14,7 +14,7 @@
 
     <br />
     {{ fullInformation }} -->
-    <product-card v-for="(item, index) in product" :key="index" :dataProduct="item" v-model="checkData" />
+    <router-view></router-view>
     </div>
 </template>
 
@@ -22,7 +22,8 @@
 import CustomInput from "./components/custom_input.vue";
 import CustomCheckbox from "./components/custom_checkbox.vue";
 import CustomRadioButtonGroup from "./components/custom_radiogroup.vue";
-import ProductCard from "./components/product_card.vue";
+import routes from './router/routes';
+
 
 export default {
   name: "App",
@@ -30,7 +31,7 @@ export default {
     CustomInput,
     CustomCheckbox,
     CustomRadioButtonGroup,
-    ProductCard
+ 
   },
   data() {
     return {
@@ -39,22 +40,9 @@ export default {
       // inputText: { f_name: "", l_name: "", gender: "", age: 0 },
       // value: false,
       // radioCheck: true,
-      checkData: {},
+     // checkData: {},
       // radio: [{ label: "Мужчина" }, { label: "Женщина" }]
-      product: [
-        {
-          name: "Samsung Galaxy Note 20 Ultra",
-          price: 31999,
-          discount_price: 28800,
-          discount_percent: 10,
-          image: "https://content2.rozetka.com.ua/goods/images/big/141334395.jpg",
-        },
-        {
-          name: "Samsung Galaxy A02s",
-          price: 3799,
-          image: "https://content.rozetka.com.ua/goods/images/big/178061571.jpg",
-        },
-      ],
+     
     };
   },
   computed: {
@@ -66,11 +54,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.wrapper {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: left;
-}
+
 </style>

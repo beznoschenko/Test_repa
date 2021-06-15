@@ -22,11 +22,11 @@
     <!-- price -->
     <span class="product-property__row-price">
       Price:<span v-if="!!dataProduct.discount_price"
-        >{{ dataProduct.discount_price }}
+        >{{ dataProduct.discount_price }}₴
       </span>
       <span
         :class="[!!dataProduct.discount_price ? 'product-property__discount' : '']"
-        >{{ dataProduct.price }}
+        >{{ dataProduct.price }}₴
       </span>
     </span>
 
@@ -61,13 +61,14 @@ export default {
 <style lang="scss" scoped>
 .product-property {
   width: 20rem;
-  border: 1px solid #283747;
+  //border: 1px solid #283747;
   border-radius: 10px;
   padding: 15px 5px;
   margin: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
   &__row {
     display: inline-block;
     color: #1c2833;
@@ -89,14 +90,16 @@ export default {
   &__image {
     width: auto;
     height: 300px;
-    position: relative;
   }
   &__discount-percent {
     background-color: rgba(255, 102, 0, 0.8);
-    right: 0;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    left: 5px;
+    top: 5px;
+    width: 60px;
+    height: 60px;
+    color: white;
+    font: bold 13pt "Sylfaen", serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,7 +110,7 @@ export default {
     border: 1px solid #00ad4c;
     color: white;
     font-size: 12pt;
-    padding: 10px 25px;
+    padding: 10px 45px;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
     &:hover {
