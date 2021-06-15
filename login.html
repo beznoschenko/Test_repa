@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <form id="log_in" >
+        <b>Name:</b> <input type="text" name="name" size="40" placeholder="Name" form="log_in"><br><br>
+        <b>Surname:</b> <input type="text" name="surname" size="40" placeholder="Surname" form="log_in"><br><br>
+        <b>Birthday:</b> <input type="date" name="birthday" size="40" form="log_in"><br><br>
+        <b>Phone: </b> <input type="text" name="phone" size="40" placeholder="+380(099) 999 99 99" form="log_in"><br><br>
+        <b>Gender</b><input type="radio" name="gender" value="male" id="contactChoice1" form="log_in"><label
+                for="contactChoice1">Male</label>
+            <input type="radio" name="gender" value="female" id="contactChoice2" form="log_in"><label
+                for="contactChoice1">Female</label>
+                <br><br>
+        <input type="submit" id="send" formmethod="post" name="send" value="Отправить" onclick="load_data(event)" form="log_in">
+        <input type="reset" value="Delete" from="log_in">
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,150 @@
+body{
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+dialog::backdrop{
+    background: rgba(0,0,0,.5);
+}
+
+dialog #edit_modal_wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#edit_modal_header{
+    width: 100%;
+    display: block;
+}
+dialog #close_modal{
+    align-self: flex-end;
+    display: inline;
+    float: right;
+}
+#edit_label{
+    align-self: flex-start;
+    display: inline;
+    float: left;
+    margin: 0;
+}
+
+#edit_modal_button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#edit_modal_button input{
+    width: 100px;
+    margin: 0 10px;
+}
+
+header{
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    background-color: #6495ED;
+    margin: 0 0 3px 0;
+    padding: 5px;
+    background-image: url(img/gerb.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 50%;
+
+}
+header img{
+    height: 80px;
+    display: block;
+    margin: 0;
+
+}
+header nav{
+    width: 100vw;
+    display: block;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #6495ED;
+    display: inline;
+  }
+  
+nav li {
+    float: left;
+  }
+  nav a{
+    float: right;
+    display: inline;
+  }
+nav li a, nav a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+nav li a:hover, nav a:hover {
+    background-color: #111111;
+  }
+  
+
+main{
+     width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+#login_form{
+    display: block;
+}
+#login_form b{
+    width: 75px;
+}
+#send{
+    margin-right: 15px;
+}
+.hidden{
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}
+#content{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow: auto;
+}
+#table_names{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    display: block;
+}
+#table_names tr{
+    width: 100%;
+}
+#table_names th, #table_names td{
+    border: 1px solid white;
+    border-spacing: 5px;
+    padding: 0 5px;
+}
+#table_names th{
+    background-color: #AFCDE7;;
+}
+#table_names td{ 
+    background: #D8E6F3;
+}
+
+.editable,  .deleted{
+    text-decoration: underline;
+    color: #1A5276;
+}
+.editable:hover,  .deleted:hover{
+    cursor: pointer;
+}

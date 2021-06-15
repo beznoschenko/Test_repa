@@ -1,0 +1,177 @@
+<template>
+  <div>
+    <custom-input/>
+    <!-- <input v-model="var1" @input="message=getResult()"  />
+    <select v-model="values" @change="message=getResult()">
+      <option :key="index" v-for="(i, index) in ['+', '-', '*', '/']">
+        {{ i }}
+      </option>
+    </select>
+    <input v-model="var2" @input="message=getResult()">
+    <span id="text">Результат: {{ message }}</span> -->
+
+    <!-- <input v-model="change_text">
+    <button @click="result_text_az=reverse_text_az(); result_text_za=reverse_text_za()">Reverse</button>
+    <button @click="result_text_az=reset_text()">Reset</button>
+    <span>Rezult AZ: {{result_text_az}}</span>
+    <span>Rezult ZA: {{result_text_za}}</span> -->
+    <!-- <ol>
+      <li :key="names" v-for="(i,names) in name_list"> {{`${i.f_name} ${i.l_name} ${i.age}`}}</li>
+    </ol> -->
+    <!-- <button @click="delete_text">x</button><input v-model="editable_text" />
+    <br />
+    <select multiple size="10">
+      <option :key="index" v-for="(item, index) in message_list">{{ item }}
+      </option>
+    </select>
+    <br />
+    <input v-model="added_text" />
+  $attrs
+    $listeners -->
+    <!-- <button @click="added_text = add_text()">Send</button>
+    <button @click="delete_text">Delete</button>  -->
+  </div>
+</template>
+
+<script>
+import CustomInput from './components/custom_input.vue'
+import CustomCheckbox from './components/custom_checkbox.vue'
+export default {
+  name: "App",
+  components:{CustomInput, CustomCheckbox },
+  // data() {
+  //   return {
+  //     message_list: ["Сообщение 1", "Сообщение 2", "Сообщение 3", "Сообщение 4", "Сообщение 5"],
+  //     edit_message_list: [],
+  //     added_text: "",
+  //     editable_text: "",
+  //     editable_index: 0,
+  //     dIndex: 0,
+  //   };
+  // },
+  // methods: {
+  //   add_text() {
+  //     if (this.added_text !== "") {
+  //       this.message_list.push(this.added_text);
+  //       this.edit_message_list.push(this.added_text);
+  //       debugger
+  //     }
+  //   },
+  //   delete_text() {
+  //     this.edit_message_list.splice(this.editable_index, 1);
+  //     this.message_list[this.editable_index]='x'+this.message_list[this.editable_index];
+  //   },
+  // },
+  // props:{
+  //   length:{
+  //     type: Number,
+  //     default:  256,
+  //   }
+
+  // },
+  // beforeMount(){
+  //   this.edit_message_list = [...this.message_list];
+  // },
+  // mounted() {
+  //   const _this = this;
+  //   setInterval(() => {
+  //     _this.edit_message_list.forEach((item, i) => {
+  //       let timerId = setTimeout(() => {
+  //         _this.editable_text = item;
+  //         _this.editable_index = i
+  //         }, i * 1000);
+  //   });
+  //   }, _this.edit_message_list.length * 1000)
+  // }
+  // data(){return{
+  //   name_list:[
+  //     {f_name :'Anton',
+  //   l_name: 'Zaika',
+  //   age: 28 },
+  //   {f_name: 'Gleb',
+  //   l_name: 'Hleb',
+  //   age:15},
+  //   {f_name:"Irina",
+  //   l_name:'Litvinovich',
+  //   age: 48},
+  //   {f_name:'Elena',
+  //   l_name:'Lopata',
+  //   age: 33},
+  //   {f_name:'Sten',
+  //   l_name:'Li',
+  //   age:99}]
+  // }
+  // }
+  // data(){
+  //   return{
+  //   change_text: '',
+  //   result_text_az:'',
+  //   result_text_za: ''
+  //   }
+  // },
+  // methods:{
+  //   reverse_text_az: function(){
+  //     return this.change_text.split("").sort().join("")
+
+  //   },
+  //   reverse_text_za: function(){
+  //     return this.change_text.split("").sort().reverse().join("")
+  //   },
+  //   reset_text: function(){
+  //     return this.change_text
+  //   }
+  // }
+
+  // data(){
+  //    return {var1: 0,
+  //    var2: 0,
+  //    values: "+",
+  //    message: ''};
+  // },
+
+  // computed:{
+  //   result(){
+  //     debugger
+  //     switch(this.values) {
+  //       case '+':
+  //         return Number(this.var1)+Number(this.var2);
+  //       case '-':
+  //         return this.var1-this.var2;
+  //       case '*':
+  //         return this.var1*this.var2;
+  //       case '/':
+  //         return this.var1/this.var2;
+  //       default:
+  //         return 0
+  //     }
+  //     return eval(`${this.var1}${this.values}${this.var2}`)
+  //   }
+  // }
+  // watch:{
+  //   var1: function(){
+  //     this.message = this.getResult()
+  //   },
+  //   var2: function(){
+  //     this.message = this.getResult()
+  //   },
+  //   values: function(){
+  //     this.message = this.getResult()
+  //   },
+
+  // },
+  // methods:{
+  //   getResult: function(){
+  //     switch(this.values) {
+  //       case '+':
+  //         return Number(this.var1)+Number(this.var2);
+  //       case '-':
+  //         return this.var1-this.var2;
+  //       case '*':
+  //         return this.var1*this.var2;
+  //       case '/':
+  //         return this.var1/this.var2;
+  //       default:
+  //         return 0
+  //     }
+  //   }
+  // }
