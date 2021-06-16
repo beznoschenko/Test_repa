@@ -1,5 +1,5 @@
 <template>
-  <div class="product-property">
+  <div class="product-property" @click="$router.push('/product')">
       <!-- Discount -->
       <div
         v-if="!!dataProduct.discount_price"

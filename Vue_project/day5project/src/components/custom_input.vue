@@ -21,7 +21,7 @@
           @blur="textReplace"
         />
         <div class="enrty-input__icon" v-if="clearable" @click="clear_input">
-          <i class="far fa-times-circle"></i>
+          <i :class="[clearable ? 'far fa-times-circle' : '']"></i>
         </div>
       </div>
       <!-- Input -->
@@ -47,7 +47,7 @@
           @input="stringInputs"
         />
         <div class="enrty-input__icon" v-if="clearable" @click="clear_input">
-          <i class="far fa-times-circle"></i>
+          <i :class="[clearable ? 'far fa-times-circle' : '']"></i>
         </div>
       </div>
     </div>
@@ -64,6 +64,7 @@ export default {
       addAcive: true,
       removeActive: true,
       disabled: false,
+      
     };
   },
   props: {
@@ -71,13 +72,13 @@ export default {
       type: Number,
       default: Number.MAX_SAFE_INTEGER,
     },
+    clearable:{
+      type: Boolean,
+      default: true
+    },
     min: {
       type: Number,
       default: Number.MIN_SAFE_INTEGER,
-    },
-    clearable: {
-      type: Boolean,
-      default: true,
     },
     number: {
       type: Boolean,
@@ -153,9 +154,11 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
+    font-size: 22px;
 }
+
 .enrty-input {
-  width: 12rem;
+  width: 6rem;
   margin-right: 27px;
   margin-left: 4px;
   // display: flex;
@@ -164,8 +167,10 @@ export default {
   position: relative;
   &__field {
     width: 100%;
+    height: 1.5rem;
     padding: 3px;
     padding-right: 16px;
+    border-radius: 5px;
   }
   &__icon {
     position: absolute;

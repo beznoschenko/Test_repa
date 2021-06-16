@@ -57,7 +57,7 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: row;
-  align-items: left;
+  align-items: flex-start;
 }
 
 </style>

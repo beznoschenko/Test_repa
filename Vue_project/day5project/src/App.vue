@@ -14,16 +14,18 @@
 
     <br />
     {{ fullInformation }} -->
-    <router-view></router-view>
-    </div>
+    <span @click="increment">{{ count }}</span>
+    <custom-menu :items="routes" />
+    <router-view> </router-view>
+  </div>
 </template>
 
 <script>
 import CustomInput from "./components/custom_input.vue";
 import CustomCheckbox from "./components/custom_checkbox.vue";
 import CustomRadioButtonGroup from "./components/custom_radiogroup.vue";
-import routes from './router/routes';
-
+import CustomMenu from "./components/custom_menu.vue";
+import routes from "./router/routes";
 
 export default {
   name: "App",
@@ -31,21 +33,28 @@ export default {
     CustomInput,
     CustomCheckbox,
     CustomRadioButtonGroup,
- 
+    CustomMenu,
   },
   data() {
     return {
+      routes,
+      //menu_data: ["Home", "Category", "Products"],
       // maxVal: 100,
       // minVal: 0,
       // inputText: { f_name: "", l_name: "", gender: "", age: 0 },
       // value: false,
       // radioCheck: true,
-     // checkData: {},
+      // checkData: {},
       // radio: [{ label: "Мужчина" }, { label: "Женщина" }]
-     
     };
   },
+  methods: {
+    increment() {},
+  },
   computed: {
+    count() {
+      return this.$store.state.count;
+    },
     // fullInformation() {
     //   return this.inputText.gender+':'+this.inputText.f_name+' '+this.inputText.l_name+', '+this.inputText.age;
     // },
@@ -54,5 +63,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 </style>
