@@ -14,7 +14,6 @@
 
     <br />
     {{ fullInformation }} -->
-    <span @click="increment">{{ count }}</span>
     <custom-menu :items="routes" />
     <router-view> </router-view>
   </div>
@@ -50,14 +49,6 @@ export default {
   },
   methods: {
     increment() {},
-  },
-  computed: {
-    count() {
-      return this.$store.state.count;
-    },
-    // fullInformation() {
-    //   return this.inputText.gender+':'+this.inputText.f_name+' '+this.inputText.l_name+', '+this.inputText.age;
-    // },
   },
 };
 </script>

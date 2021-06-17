@@ -1,5 +1,5 @@
 <template>
-  <div class="product-property" @click="$router.push('/product')">
+  <div class="product-property" >
       <!-- Discount -->
       <div
         v-if="!!dataProduct.discount_price"
@@ -43,7 +43,7 @@ export default {
     dataProduct: {
       type: Object,
       default: () => {},
-    },
+    }
   },
   data() {
     return {

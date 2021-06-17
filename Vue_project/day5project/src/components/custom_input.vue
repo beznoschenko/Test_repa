@@ -13,12 +13,13 @@
       <!--  Minus Button -->
 
       <!-- Input -->
-      <div class="enrty-input">
+      <div class="enrty-input" v-bind:style="{width: width+'rem'}">
         <input
           class="enrty-input__field"
           v-model="inputValue"
           @input="removeSymbol"
           @blur="textReplace"
+          
         />
         <div class="enrty-input__icon" v-if="clearable" @click="clear_input">
           <i :class="[clearable ? 'far fa-times-circle' : '']"></i>
@@ -39,12 +40,13 @@
 
     <!-- FOR STRINGS -->
     <div class="wrapper-string" v-else>
-      <div class="enrty-input">
+      <div class="enrty-input"   v-bind:style="{width: width+'rem'}">
         <input
           class="enrty-input__field"
           v-bind:maxlength="18"
           v-model="inputValue"
           @input="stringInputs"
+        
         />
         <div class="enrty-input__icon" v-if="clearable" @click="clear_input">
           <i :class="[clearable ? 'far fa-times-circle' : '']"></i>
@@ -74,7 +76,7 @@ export default {
     },
     clearable:{
       type: Boolean,
-      default: true
+      default: false
     },
     min: {
       type: Number,
@@ -92,6 +94,10 @@ export default {
       type: Number,
       default: 10,
     },
+    width:{
+      type: Number,
+      default: 6
+    }
   },
 
   watch: {
@@ -158,9 +164,10 @@ export default {
 }
 
 .enrty-input {
-  width: 6rem;
+
   margin-right: 27px;
   margin-left: 4px;
+  color: #A9A9A9;
   // display: flex;
   // flex-direction: row;
   // align-items: center;
@@ -171,6 +178,8 @@ export default {
     padding: 3px;
     padding-right: 16px;
     border-radius: 5px;
+    border: 1px solid rgba(169, 169, 169, 0.75);
+    outline: none;
   }
   &__icon {
     position: absolute;
