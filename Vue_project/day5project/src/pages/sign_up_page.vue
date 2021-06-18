@@ -4,38 +4,50 @@
       <div class="wrapper-form__title">REGISTER</div>
       <br />
       <div class="wrapper-form__label">First name</div>
-      <custom-input :width="20" />
-      <div class="wrapper-form__label">Last name</div>
-      <custom-input :width="20" />
+      <custom-input :width="20" :maxlength="40" v-model="user.f_name"/>
+      <div class="wrapper-form__label" >Last name</div>
+      <custom-input :width="20" :maxlength="40" v-model="user.l_name"/>
 
-      <div class="wrapper-form__label">Login</div>
-      <custom-input :width="20" />
+      <div class="wrapper-form__label">E-mail</div>
+      <custom-input :width="20" :maxlength="80" v-model="user.email"/>
 
       <div class="wrapper-form__label">Password</div>
-      <custom-input :width="20" />
+      <custom-input :width="20" :maxlength="30" type="password" v-model="user.password"/>
 
       <div class="wrapper-form__label">Confirm password</div>
-      <custom-input :width="20" />
-      <custom-checkbox :label='text' />
-      <button class="wrapper-form__button">Register</button>
+      <custom-input :width="20" :maxlength="30" type="password"/> 
+      <custom-checkbox :label='text' v-model="terms" />
+      <button class="wrapper-form__button" @click="addUser">Register</button>
     </div>
   </div>
 </template>
 
 <script>
 import CustomInput from "../components/custom_input.vue";
-import CustomCheckbox from "../components/custom_checkbox.vue"
+import CustomCheckbox from "../components/custom_checkbox.vue";
+import routes from "../router/routes";
 export default {
   name: "Authorization",
   data() {
     return {
-      text: "I accept the Terms of Use & Privacy Policy"
+       routes,
+      text: "I accept the Terms of Use & Privacy Policy",
+      terms: false,
+      user:{}
     };
   },
   components: {
     CustomInput,
     CustomCheckbox
   },
+  methods:{
+    addUser(){
+      this.user.email.toLowerCase()
+      this.$store.commit("registerUser", this.user);
+      this.$store.commit("login_out", this.user.name);
+      this.$router.push("/")
+    }
+  }
 };
 </script>
 

@@ -13,7 +13,8 @@
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-router": "^3.5.1",
-    "vuex": "^3.6.2"
+    "vuex": "^3.6.2",
+    "vuex-persistedstate": "^4.0.0-beta.3"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
@@ -45,7 +46,8 @@
       "no-unused-vars": 0,
       "no-unused-labels": 0,
       "vue/no-unused-components": 0,
-      "vue/require-valid-default-prop": 0
+      "vue/require-valid-default-prop": 0,
+      "vue/no-use-v-if-with-v-for": 0
     }
   },
   "browserslist": [

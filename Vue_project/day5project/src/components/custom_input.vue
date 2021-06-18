@@ -19,6 +19,7 @@
           v-model="inputValue"
           @input="removeSymbol"
           @blur="textReplace"
+          v-bind="$attrs"
           
         />
         <div class="enrty-input__icon" v-if="clearable" @click="clear_input">
@@ -43,9 +44,10 @@
       <div class="enrty-input"   v-bind:style="{width: width+'rem'}">
         <input
           class="enrty-input__field"
-          v-bind:maxlength="18"
+          v-bind:maxlength=this.maxlength
           v-model="inputValue"
           @input="stringInputs"
+          v-bind="$attrs"
         
         />
         <div class="enrty-input__icon" v-if="clearable" @click="clear_input">
@@ -128,7 +130,7 @@ export default {
       }
     },
     addClick() {
-      if (+this.inputValue < this.max) {
+      if (+this.inputValue < this.max) { 
         ++this.inputValue;
       }
       this.$emit("input", Number(this.inputValue));

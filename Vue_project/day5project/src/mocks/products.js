@@ -48,6 +48,7 @@ export default {
             price: 31999,
             discount_price: 28800,
             discount_percent: 10,
+            comments: [{ user: "Zhorik", comment: "1", date: "18.06.2020" }]
 
 
         },
@@ -58,46 +59,55 @@ export default {
             description: "Galaxy A02s предназначен для тех, кто всегда в движении, оснащен мощным аккумулятором с быстрой зарядкой на 5000 мА*ч. Непревзойденный 6.5-дюймовый дисплей PLS предлагает захватывающие впечатления, идеально подходит для игр, просмотра видео, многозадачности — действительно позволяя вам жить своей жизнью в дороге, не упуская ни минуты.",
             property: [
                 { name: "Стандарт связи/интернет", value: "2G (GPRS/EDGE) 3G (WCDMA/UMTS/HSPA) 4G (LTE)" },
-                { name: "Дисплей", value: [
+                {
+                    name: "Дисплей", value: [
                         { name: "Диагональ экрана", value: "6.5" },
                         { name: "Разрешение дисплея", value: "1600 х 720" },
                         { name: "Тип матрицы", value: "PLS" },
                         { name: "Частота обновления экрана", value: "60 Гц" },
                     ]
                 },
-                {name:"СИМ-карты", value:[
-                    {name:"Количество СИМ-карт", value:"2"},
-                    {name:"Размеры СИМ-карты", value:"Nano-SIM"},
-                ]},
-                {name: "Функции памяти", value:[
-                    {name:"Оперативная память", value:"3 ГБ"},
-                    {name:"Встроенная память", value:"32 ГБ"},
-                    {name:"Формат поддерживаемых карт памяти", value:"microSD"},
-                    {name:"Максимальный объем поддерживаемой карты памяти", value:"1 ТБ"},
-                    {name:"Комбинированный слот", value:"Нет"},
-                ]}
+                {
+                    name: "СИМ-карты", value: [
+                        { name: "Количество СИМ-карт", value: "2" },
+                        { name: "Размеры СИМ-карты", value: "Nano-SIM" },
+                    ]
+                },
+                {
+                    name: "Функции памяти", value: [
+                        { name: "Оперативная память", value: "3 ГБ" },
+                        { name: "Встроенная память", value: "32 ГБ" },
+                        { name: "Формат поддерживаемых карт памяти", value: "microSD" },
+                        { name: "Максимальный объем поддерживаемой карты памяти", value: "1 ТБ" },
+                        { name: "Комбинированный слот", value: "Нет" },
+                    ]
+                }
 
 
             ],
             price: 3799,
-
+            comments: [{ user: "Zhorik", comment: "2", date: "18.06.2020" }]
         },
         {
             name: "Samsung Galaxy S21 Ultra",
             price: 39999,
-            image: "https://content.rozetka.com.ua/goods/images/big/163259157.jpg"
+            image: "https://content.rozetka.com.ua/goods/images/big/163259157.jpg",
+            comments: [{ user: "Zhorik", comment: "3", date: "18.06.2020" }]
         },
         {
             name: "Samsung Galaxy A12",
             price: 5199,
             discount_price: 5499,
             discount_percent: 5,
-            image: "https://content2.rozetka.com.ua/goods/images/big/178061476.jpg"
+            image: "https://content2.rozetka.com.ua/goods/images/big/178061476.jpg",
+            comments: [{ user: "Zhorik", comment: "4", date: "18.06.2020" }]
+
         },
         {
             name: "Samsung Galaxy A21s ",
             price: 5399,
-            image: "https://content.rozetka.com.ua/goods/images/big/172730930.jpg"
+            image: "https://content.rozetka.com.ua/goods/images/big/172730930.jpg",
+            comments: [{ user: "Zhorik", comment: "5", date: "18.06.2020" }]
         }
 
     ]

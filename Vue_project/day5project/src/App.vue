@@ -47,11 +47,13 @@ export default {
       // radio: [{ label: "Мужчина" }, { label: "Женщина" }]
     };
   },
-  methods: {
-    increment() {},
-  },
 };
 </script>
 
 <style lang="scss" scoped>
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 </style>

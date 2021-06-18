@@ -1,5 +1,6 @@
 <template>
-      <div class="wrapper">
+      <div class="wrappers">
+
           <product-card v-for="(item, index) in product" :key="index" :dataProduct="item" v-model="checkData" @click.native="$router.push({ name: 'product', params:{id: index}})" /> 
 
       </div>
@@ -32,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.wrapper {
+.wrappers {
   width: 100%;
   height: 100%;
   display: flex;

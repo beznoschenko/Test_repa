@@ -3,13 +3,13 @@
     <div class="wrapper-form">
       <div class="wrapper-form__title">LOGIN</div>
       <br />
-      <div class="wrapper-form__label">Login</div>
-      <custom-input :width="20" />
+      <div class="wrapper-form__label" patten="\w+@{1}[a-zA-Z]+\.{1}[a-zA-Z]+">E-mail</div>
+      <custom-input :width="20" :maxlength="40" v-model="user.email"/>
 
       <div class="wrapper-form__label">Password</div>
-      <custom-input :width="20" />
+      <custom-input :width="20" :maxlength="30" type="password" v-model="user.password"/>
 
-      <button class="wrapper-form__button">Log in</button>
+      <button class="wrapper-form__button" @click="checkData">Log in</button>
     </div>
   </div>
 </template>
@@ -19,11 +19,30 @@ import CustomInput from "../components/custom_input.vue";
 export default {
   name: "Login",
   data() {
-    return {};
+    return {
+      user:{}
+    };
   },
   components: {
     CustomInput,
   },
+  methods:{
+    checkData(){
+      let name = this.$store.state.users.map( a => {return a.email})
+      let userIndex = name.findIndex((name) => {return name==this.user.email.toLowerCase()})
+      //debugger
+      if (userIndex!==-1 && this.$store.state.users[userIndex].password==this.user.password){
+        console.log("Успешный логин")
+
+      this.$store.commit("login_out");
+      this.$store.commit("login", userIndex);
+      this.$router.push("/")
+      }
+      else{
+        console.log("Ваши данные хуета!")
+      }
+    }
+  }
 };
 </script>
 

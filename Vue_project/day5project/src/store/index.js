@@ -1,48 +1,55 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    products:[
-      {
-      image: "https://content2.rozetka.com.ua/goods/images/big/141334395.jpg",
-            name: "Samsung Galaxy Note 20 Ultra",
-            price: 31999,
-            discount_price: 28800,
-            discount_percent: 10,
-      },
-      {
-        name: "Samsung Galaxy A02s",
-        price: 3799,
-        image: "https://content.rozetka.com.ua/goods/images/big/178061571.jpg",
-    },
-    {
-        name: "Samsung Galaxy S21 Ultra",
-        price: 39999,
-        image: "https://content.rozetka.com.ua/goods/images/big/163259157.jpg"
-    },
-    {
-        name: "Samsung Galaxy A12",
-        price: 5199,
-        discount_price: 5499,
-        discount_percent: 5,
-        image: "https://content2.rozetka.com.ua/goods/images/big/178061476.jpg"
-    },
-    {
-        name: "Samsung Galaxy A21s ",
-        price: 5399,
-        image: "https://content.rozetka.com.ua/goods/images/big/172730930.jpg"
-    }
-    ]
+    products: [],
+    users: [],
+    logined: {status: false}
   },
-  getters:{
+  getters: {
     getProduct: state => state.products,
+    getLoginStatus: state => state.logined,
   },
+  plugins: [createPersistedState()],
   mutations: {
-    loadData(state, payload){
+    loadData(state, payload) {
       state.products = payload;
+    },
+    addComment(state,payload) {
+      let now_date = new Date().toLocaleString()
+      state.products[payload.index].comments.push({ user: state.logined.name, comment: payload.text, date: now_date })
+    },
+    clearComments(state, index){
+      state.products[index].comments=[]
+    },
+    removeComment(state, payload){
+      state.products[payload.pindex].comments.splice(payload.cindex, 1)
+    },
+    registerUser(state, userData){
+      state.users.push(userData)
+      console.log(state.users)
+    },
+    login_out(state){
+      state.logined.status = !state.logined.status
+    },
+    login(state, index){
+      if (state.logined.status){
+        state.logined.name = state.users[index].f_name
+        console.log(state.logined.name)
+        }
+        else{
+          delete state.users[index].name
+          console.log("Хуета")
+        }
+    },
+    clearAll(state){
+      state.products= [];
+      state.users=[],
+     state.logined= {status: false}
     }
   }
 })

@@ -4,6 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
 import router from './router'
 import store from './store'
+import createPersistedState from "vuex-persistedstate";
 
 Vue.config.productionTip = false
 
