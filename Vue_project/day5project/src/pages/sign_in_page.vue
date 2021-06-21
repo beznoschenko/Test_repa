@@ -3,12 +3,22 @@
     <div class="wrapper-form">
       <div class="wrapper-form__title">LOGIN</div>
       <br />
-      <div class="wrapper-form__label" patten="\w+@{1}[a-zA-Z]+\.{1}[a-zA-Z]+">E-mail</div>
-      <custom-input :width="20" :maxlength="40" v-model="user.email"/>
+      <div class="wrapper-form__label" patten="\w+@{1}[a-zA-Z]+\.{1}[a-zA-Z]+">
+        E-mail
+      </div>
+      <custom-input :width="20" :maxlength="40" v-model="user.email" />
 
       <div class="wrapper-form__label">Password</div>
-      <custom-input :width="20" :maxlength="30" type="password" v-model="user.password"/>
+      <custom-input
+        :width="20"
+        :maxlength="30"
+        type="password"
+        v-model="user.password"
+      />
 
+      <div v-if="!!error" class="wrapper-form__error-label">
+        {{ this.error }}
+      </div>
       <button class="wrapper-form__button" @click="checkData">Log in</button>
     </div>
   </div>
@@ -20,29 +30,33 @@ export default {
   name: "Login",
   data() {
     return {
-      user:{}
+      user: {},
+      error: "",
     };
   },
   components: {
     CustomInput,
   },
-  methods:{
-    checkData(){
-      let name = this.$store.state.users.map( a => {return a.email})
-      let userIndex = name.findIndex((name) => {return name==this.user.email.toLowerCase()})
-      //debugger
-      if (userIndex!==-1 && this.$store.state.users[userIndex].password==this.user.password){
-        console.log("Успешный логин")
-
-      this.$store.commit("login_out");
-      this.$store.commit("login", userIndex);
-      this.$router.push("/")
+  methods: {
+    checkData() {
+      let name = this.$store.state.users.map((a) => {
+        return a.email;
+      });
+      let userIndex = name.findIndex((value) => {
+        return value == this.user.email.toLowerCase();
+      });
+      if (
+        userIndex !== -1 &&
+        this.$store.state.users[userIndex].password == this.user.password
+      ) {
+        this.$store.commit("login_out");
+        this.$store.commit("login", this.user.email);
+        this.$router.push("/");
+      } else {
+        this.error = "Incorrect data";
       }
-      else{
-        console.log("Ваши данные хуета!")
-      }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -68,6 +82,10 @@ export default {
   &__label {
     font: normal 15pt "Sylfaen", serif;
     color: #212f3d;
+  }
+  &__error-label {
+    color: red;
+    font-size: 13pt;
   }
   &__button {
     float: right;

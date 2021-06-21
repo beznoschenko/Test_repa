@@ -4,13 +4,20 @@
       class="menu__item"
       :key="index"
       v-for="(item, index) in items"
-      v-show="!(isLogin.status && (item.name==='login' || item.name==='Authorization'))"
+      v-show="
+        !(
+          isLogin.status &&
+          (item.name === 'login' || item.name === 'Registration')
+        )
+      "
       @click="$router.push(item.path)"
     >
       {{ item.name.toUpperCase() }}
     </span>
-    <span v-if="isLogin.status" class="menu__item" @click="login_out"> Log out </span>
-    <span class="menu__item" @click="clearAll"> Clear all </span>
+    <span v-if="isLogin.status" class="menu__item" @click="login_out">
+      Log out
+    </span>
+    <span class="menu__item clear_data" @click="clearAll"> Clear all </span>
   </div>
 </template>
 
@@ -28,11 +35,11 @@ export default {
   },
   methods: {
     login_out() {
-      this.$store.commit("login_out");
+      this.$store.commit("logout");
     },
-    clearAll(){
+    clearAll() {
       this.$store.commit("clearAll");
-    }
+    },
   },
   computed: {
     isLogin() {
@@ -58,5 +65,8 @@ export default {
       box-shadow: 0px -5px 0px #a93226 inset;
     }
   }
+}
+.clear_data {
+  color: #212f3d;
 }
 </style>

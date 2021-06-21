@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.wrapper{
+.wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;

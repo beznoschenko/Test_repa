@@ -13,14 +13,13 @@
       <!--  Minus Button -->
 
       <!-- Input -->
-      <div class="enrty-input" v-bind:style="{width: width+'rem'}">
+      <div class="enrty-input" v-bind:style="{ width: width + 'rem' }">
         <input
           class="enrty-input__field"
           v-model="inputValue"
           @input="removeSymbol"
           @blur="textReplace"
           v-bind="$attrs"
-          
         />
         <div class="enrty-input__icon" v-if="clearable" @click="clear_input">
           <i :class="[clearable ? 'far fa-times-circle' : '']"></i>
@@ -41,14 +40,13 @@
 
     <!-- FOR STRINGS -->
     <div class="wrapper-string" v-else>
-      <div class="enrty-input"   v-bind:style="{width: width+'rem'}">
+      <div class="enrty-input" v-bind:style="{ width: width + 'rem' }">
         <input
           class="enrty-input__field"
-          v-bind:maxlength=this.maxlength
+          v-bind:maxlength="this.maxlength"
           v-model="inputValue"
           @input="stringInputs"
           v-bind="$attrs"
-        
         />
         <div class="enrty-input__icon" v-if="clearable" @click="clear_input">
           <i :class="[clearable ? 'far fa-times-circle' : '']"></i>
@@ -68,7 +66,6 @@ export default {
       addAcive: true,
       removeActive: true,
       disabled: false,
-      
     };
   },
   props: {
@@ -76,9 +73,9 @@ export default {
       type: Number,
       default: Number.MAX_SAFE_INTEGER,
     },
-    clearable:{
+    clearable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     min: {
       type: Number,
@@ -96,10 +93,14 @@ export default {
       type: Number,
       default: 10,
     },
-    width:{
+    width: {
       type: Number,
-      default: 6
-    }
+      default: 6,
+    },
+    error: {
+      type: String,
+      default: "",
+    },
   },
 
   watch: {
@@ -130,7 +131,7 @@ export default {
       }
     },
     addClick() {
-      if (+this.inputValue < this.max) { 
+      if (+this.inputValue < this.max) {
         ++this.inputValue;
       }
       this.$emit("input", Number(this.inputValue));
@@ -162,14 +163,13 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-    font-size: 22px;
+  font-size: 22px;
 }
 
 .enrty-input {
-
   margin-right: 27px;
   margin-left: 4px;
-  color: #A9A9A9;
+  color: #a9a9a9;
   // display: flex;
   // flex-direction: row;
   // align-items: center;

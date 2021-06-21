@@ -1,7 +1,7 @@
 <template>
   <div class="checkbox-wrapper">
     <div class="checkbox-wrapper__icon" @click="checkClick()">
-      <i :class="[this.isCheck ? 'fas fa-check' : '']" ></i>
+      <i :class="[this.isCheck ? 'fas fa-check' : '']"></i>
     </div>
     {{ label }}
   </div>
@@ -12,7 +12,7 @@ export default {
   name: "CustomCheckbox",
   data() {
     return {
-     isCheck: false
+      isCheck: false,
     };
   },
   props: {
@@ -25,18 +25,16 @@ export default {
       default: "",
     },
   },
-  methods:{
-    checkClick(){
-      this.isCheck = !this.value
+  methods: {
+    checkClick() {
+      this.isCheck = !this.value;
       this.$emit("input", this.isCheck);
-    }
+    },
   },
-  mounted(){
+  mounted() {
     const _this = this;
-    _this.isCheck = _this.value
-
-
-  }
+    _this.isCheck = _this.value;
+  },
 };
 </script>
 

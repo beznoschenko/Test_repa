@@ -3,20 +3,37 @@
     <div class="wrapper-form">
       <div class="wrapper-form__title">REGISTER</div>
       <br />
+
       <div class="wrapper-form__label">First name</div>
-      <custom-input :width="20" :maxlength="40" v-model="user.f_name"/>
-      <div class="wrapper-form__label" >Last name</div>
-      <custom-input :width="20" :maxlength="40" v-model="user.l_name"/>
+      <custom-input :width="20" :maxlength="40" v-model="user.f_name" />
+
+      <div class="wrapper-form__label">Last name</div>
+      <custom-input :width="20" :maxlength="40" v-model="user.l_name" />
 
       <div class="wrapper-form__label">E-mail</div>
-      <custom-input :width="20" :maxlength="80" v-model="user.email"/>
+      <custom-input :width="20" :maxlength="80" v-model="user.email" />
 
       <div class="wrapper-form__label">Password</div>
-      <custom-input :width="20" :maxlength="30" type="password" v-model="user.password"/>
+      <custom-input
+        :width="20"
+        :maxlength="30"
+        type="password"
+        v-model="user.password"
+      />
 
       <div class="wrapper-form__label">Confirm password</div>
-      <custom-input :width="20" :maxlength="30" type="password"/> 
-      <custom-checkbox :label='text' v-model="terms" />
+      <custom-input
+        :width="20"
+        :maxlength="30"
+        v-model="user.confirm_password"
+        type="password"
+      />
+
+      <custom-checkbox :label="text" v-model="terms" />
+      <div v-if="!!error" class="wrapper-form__error-label">
+        {{ this.error }}
+      </div>
+
       <button class="wrapper-form__button" @click="addUser">Register</button>
     </div>
   </div>
@@ -30,24 +47,46 @@ export default {
   name: "Authorization",
   data() {
     return {
-       routes,
+      routes,
       text: "I accept the Terms of Use & Privacy Policy",
       terms: false,
-      user:{}
+      user: {},
+      error: "",
     };
   },
   components: {
     CustomInput,
-    CustomCheckbox
+    CustomCheckbox,
   },
-  methods:{
-    addUser(){
-      this.user.email.toLowerCase()
-      this.$store.commit("registerUser", this.user);
-      this.$store.commit("login_out", this.user.name);
-      this.$router.push("/")
-    }
-  }
+  methods: {
+    addUser() {
+      let empty = true;
+      let mail_reg = /\w+@{1}[a-zA-Z]+\.{1}[a-zA-Z]+/;
+      Object.keys(this.user).forEach((a) => {
+        let tet = !!this.user[a];
+        if (tet) {
+          empty = false;
+        }
+      });
+      if (empty) {
+        this.error = "Not all fields are filled";
+      } else if (!mail_reg.test(this.user.email)) {
+        this.error = "Incorrect email format";
+      } else if (this.user.password.length < 4) {
+        this.error = "Password is too short";
+      } else if (!(this.user.password === this.user.confirm_password)) {
+        this.error = "Passwords do not match";
+      } else if (!this.terms) {
+        this.error = "Not accepted terms";
+      } else {
+        delete this.user.confirm_password;
+        this.user.email = this.user.email.toLowerCase();
+        this.$store.commit("registerUser", this.user);
+        this.$store.commit("login", this.user.f_name);
+        this.$router.push("/");
+      }
+    },
+  },
 };
 </script>
 
@@ -74,6 +113,10 @@ export default {
     font: normal 15pt "Sylfaen", serif;
     color: #212f3d;
   }
+  &__error-label {
+    color: red;
+    font-size: 13pt;
+  }
   &__button {
     float: right;
     margin: 5px 0;
@@ -86,3 +129,5 @@ export default {
   }
 }
 </style>
+
+  
