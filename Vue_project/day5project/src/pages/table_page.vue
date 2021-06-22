@@ -20,7 +20,6 @@ export default {
         
       const data=  await this.axios.get('https://jsonplaceholder.typicode.com/todos/0/posts');
       this.postData = data.data
-      console.log(this.postData)
 
     }
 

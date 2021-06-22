@@ -33,10 +33,7 @@ export default {
     return {
       isVisible: false,
     };
-  },
-  mounted() {
-    console.log(this.parentdata);
-  },
+  }
 };
 </script>
 

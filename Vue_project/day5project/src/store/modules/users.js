@@ -1,23 +1,13 @@
-export default {
-    state:() =>({
+export default{
+    namespaced: true,
+    state:() => ({ 
         users: [],
         logined: { status: false }
     }),
     getters: {
         getLoginStatus: state => state.logined,
     },
-    mutation: {
-        addComment(state, payload) {
-            let now_date = new Date().toLocaleString()
-            state.products[payload.index].comments.push({ user: state.logined.name, comment: payload.text, date: now_date })
-        },
-        clearComments(state, index) {
-            state.products[index].comments = []
-        },
-        removeComment(state, payload) {
-            state.products[payload.pindex].comments.splice(payload.cindex, 1)
-        },
-
+    mutations: {
         registerUser(state, userData) {
             state.users.push(userData)
             console.log(state.users)
@@ -36,4 +26,5 @@ export default {
         },
 
     },
+    actions:{}
 }

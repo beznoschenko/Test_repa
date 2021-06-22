@@ -81,8 +81,8 @@ export default {
       } else {
         delete this.user.confirm_password;
         this.user.email = this.user.email.toLowerCase();
-        this.$store.commit("registerUser", this.user);
-        this.$store.commit("login", this.user.f_name);
+        this.$store.commit("moduleUsers/registerUser", this.user);
+        this.$store.commit("moduleUsers/login", this.user.f_name);
         this.$router.push("/");
       }
     },

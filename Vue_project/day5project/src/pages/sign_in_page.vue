@@ -47,10 +47,10 @@ export default {
       });
       if (
         userIndex !== -1 &&
-        this.$store.state.users[userIndex].password == this.user.password
+        this.$store.state['moduleUsers/users'][userIndex].password == this.user.password
       ) {
-        this.$store.commit("login_out");
-        this.$store.commit("login", this.user.email);
+        this.$store.commit("moduleUsers/login_out");
+        this.$store.commit("moduleUsers/login", this.user.email);
         this.$router.push("/");
       } else {
         this.error = "Incorrect data";

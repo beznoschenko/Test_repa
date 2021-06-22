@@ -90,23 +90,23 @@ export default {
   methods: {
     addComments() {
      let payload={index:this.$route.params.id, text: this.commentText }
-      this.$store.commit("addComment", payload);
+      this.$store.commit("moduleProduct/addComment", payload);
       this.commentText = "";
     },
     clearComments() {
-      this.$store.commit("clearComments", this.$route.params.id);
+      this.$store.commit("moduleProduct/clearComments", this.$route.params.id);
     },
     removeComments(index) {
       let payload={pindex:this.$route.params.id, cindex: index }
-      this.$store.commit("removeComment", payload);
+      this.$store.commit("moduleProduct/removeComment", payload);
     },
   },
   computed: {
     datas() { 
-      return this.$store.getters.getProduct[this.$route.params.id];
+      return this.$store.getters['moduleProduct/getProduct'][this.$route.params.id];
     },
     isLogin(){
-      return this.$store.getters.getLoginStatus
+      return this.$store.getters['moduleUsers/getLoginStatus']
     }
   },
 };

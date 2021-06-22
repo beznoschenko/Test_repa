@@ -43,7 +43,7 @@ export default {
   },
   computed: {
     isLogin() {
-      return this.$store.getters.getLoginStatus;
+      return this.$store.getters['moduleUsers/getLoginStatus'];
     },
   },
 };
