@@ -3,6 +3,7 @@ import InfoPage from '../pages/product_info_page'
 import Login from '../pages/sign_in_page'
 import Registration from '../pages/sign_up_page'
 import TabelPage from '../pages/table_page'
+import RecursivePage from '../pages/recursive_page'
 const routes = [
     {
         path: '/',
@@ -28,7 +29,12 @@ const routes = [
         path: '/table',
         name: "Table",
         component: TabelPage
-    }
+    },
+    {
+        path: '/tree',
+        name: "Tree",
+        component: RecursivePage
+    },
 ]
 
 export default routes
