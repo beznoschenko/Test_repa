@@ -15,9 +15,9 @@
       {{ item.name.toUpperCase() }}
     </span>
     <span v-if="isLogin.status" class="menu__item" @click="login_out">
-      Log out
+      LOG OUT
     </span>
-    <span class="menu__item clear_data" @click="clearAll"> Clear all </span>
+    <span class="menu__item clear_data" @click="clearAll"> CLEAR ALL </span>
   </div>
 </template>
 

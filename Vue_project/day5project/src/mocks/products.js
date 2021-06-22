@@ -34,8 +34,7 @@ export default {
                     ]
                 },
                 { name: "Операционная система", value: "Android" },
-                {
-                    name: "Фронтальная камера",
+                { name: "Фронтальная камера",
                     value: [
                         { name: "Количество фронтальных камер", value: "1" },
                         { name: "Количество мегапикселей фронтальной камеры", value: "10 Мп" },
@@ -44,6 +43,17 @@ export default {
                         { name: " Дополнительно", value: "Dual Pixel AF / размер пикселя: 1.22μm / FOV: 80˚ / апертура f/2.2" }
                     ]
                 },
+                {
+                    name:"Процессор",
+                    value:[{name: "Название", value: "Samsung Exynos 990"},
+                    {name: "Тип ядра", value: "Exynos M5 + Cortex-A76 (64bit) + Cortex-A55 (64bit)"},
+                    {name: "Видеоядро", value: "ARM Mali-G77 MP11"},
+                    {name: "Количество ядер", value: "2+2+4"},
+                    {name: "Процессор", value: "Samsung Exynos"},
+                    {name: "Модель Exynos", value: "Exynos 990"},
+                    {name: "Частота", value: "2.73 ГГц + 2.5 ГГц + 2.0 ГГц"}
+                    ]
+                }
             ],
             price: 31999,
             discount_price: 28800,

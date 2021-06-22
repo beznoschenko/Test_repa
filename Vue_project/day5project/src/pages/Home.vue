@@ -1,6 +1,6 @@
 <template>
       <div class="wrappers">
-
+        <!-- {{this.$store.state.products}} -->
           <product-card v-for="(item, index) in product" :key="index" :dataProduct="item" v-model="checkData" @click.native="$router.push({ name: 'product', params:{id: index}})" /> 
 
       </div>
@@ -27,6 +27,7 @@ export default {
   }, 
   created(){
     this.$store.commit('loadData', products.datas)
+    
   }
 
 }

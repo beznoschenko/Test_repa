@@ -15,6 +15,7 @@
     <br />
     {{ fullInformation }} -->
     <custom-menu :items="routes" />
+    <!-- {{this.$store.state.products}} -->
     <router-view> </router-view>
   </div>
 </template>
