@@ -4,37 +4,62 @@ import Login from '../pages/sign_in_page'
 import Registration from '../pages/sign_up_page'
 import TabelPage from '../pages/table_page'
 import RecursivePage from '../pages/recursive_page'
+import store from '../store'
 const routes = [
     {
         path: '/',
         name: "home",
-        component: Home
+        component: Home,
+        meta:{
+            visible: true
+
+        }
     },
     {
         path: '/product/:id',
         name: "product",
-        component: InfoPage
+        component: InfoPage,
+        meta:{
+            visible: false
+
+        }
+    },
+    {
+        path: '/table',
+        name: "table",
+        component: TabelPage,
+        meta:{
+            visible: true
+
+        }
+    },
+    {
+        path: '/tree',
+        name: "tree",
+        component: RecursivePage,
+        meta:{
+            visible: true
+
+        }
     },
     {
         path: '/sign-in',
         name: "login",
-        component: Login
+        component: Login,
+        meta:{
+            visible: false
+
+        }
     },
     {
         path: '/sign-up',
-        name: "Registration",
-        component: Registration
+        name: "registration",
+        component: Registration,
+        meta: {
+            visible: false
+        }
     },
-    {
-        path: '/table',
-        name: "Table",
-        component: TabelPage
-    },
-    {
-        path: '/tree',
-        name: "Tree",
-        component: RecursivePage
-    },
+    
 ]
 
 export default routes

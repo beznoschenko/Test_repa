@@ -6,14 +6,12 @@ export default{
     }),
     getters: {
         getLoginStatus: state => state.logined,
+        getUser: state => state.users
     },
     mutations: {
         registerUser(state, userData) {
             state.users.push(userData)
             console.log(state.users)
-        },
-        login_out(state) {
-            state.logined.status = !state.logined.status
         },
         login(state, name) {
             state.logined.status = true

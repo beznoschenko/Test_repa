@@ -39,23 +39,17 @@ export default {
   },
   methods: {
     checkData() {
-      let name = this.$store.state.users.map((a) => {
-        return a.email;
-      });
-      let userIndex = name.findIndex((value) => {
-        return value == this.user.email.toLowerCase();
-      });
+      let userData = this.$store.getters['moduleUsers/getUser'].find(el => el.email===this.user.email)
+      console.log(userData)
       if (
-        userIndex !== -1 &&
-        this.$store.state['moduleUsers/users'][userIndex].password == this.user.password
+        userData.email === this.user.email && userData.password === this.user.password
       ) {
-        this.$store.commit("moduleUsers/login_out");
         this.$store.commit("moduleUsers/login", this.user.email);
         this.$router.push("/");
       } else {
         this.error = "Incorrect data";
       }
-    },
+    }, 
   },
 };
 </script>

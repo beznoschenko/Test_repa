@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-//import createPersistedState from "vuex-persistedstate";
+import createPersistedState from "vuex-persistedstate";
 import moduleUsers from './modules/users'
 import moduleProduct from './modules/products'
 
@@ -22,7 +22,7 @@ export default new Vuex.Store({
   actions:{},
 
   
-   //plugins: [createPersistedState()],
+  plugins: [createPersistedState()],
 
   // clearAll(state) {
   //   state.products = [];

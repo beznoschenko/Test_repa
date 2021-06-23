@@ -6,7 +6,7 @@
       <div
         class="wrapper-number__minus"
         @click="removeClick"
-        :class="[this.inputValue == this.min ? 'disabled' : '']"
+        :class="[this.inputValue === this.min ? 'disabled' : '']"
       >
         <i class="far fa-minus-square"></i>
       </div>
@@ -31,7 +31,7 @@
       <div
         class="wrapper-number__plus"
         @click="addClick"
-        :class="[this.inputValue == this.max ? 'disabled' : '']"
+        :class="[this.inputValue === this.max ? 'disabled' : '']"
       >
         <i class="far fa-plus-square"></i>
       </div>
@@ -124,7 +124,7 @@ export default {
     },
     removeSymbol() {
       this.inputValue = this.inputValue.replaceAll(/(?!^-)[^0-9]/g, "");
-      if (+this.inputValue == this.max || +this.inputValue < this.min) {
+      if (+this.inputValue === this.max || +this.inputValue < this.min) {
         let inputArray = this.inputValue.split("");
         inputArray.pop();
         this.inputValue = inputArray.join("");

@@ -14,8 +14,7 @@
 
     <br />
     {{ fullInformation }} -->
-    <custom-menu :items="routes" />
-    <!-- {{this.$store.state.products}} -->
+    <custom-menu :items="menu" />
     <router-view> </router-view>
   </div>
 </template>
@@ -47,6 +46,16 @@ export default {
       // checkData: {},
       // radio: [{ label: "Мужчина" }, { label: "Женщина" }]
     };
+  },
+  computed: {
+    menu() {
+      if (this.$store.getters["moduleUsers/getLoginStatus"].status){
+        return this.routes.filter((el) => el.meta.visible);
+      }
+      else{
+        return this.routes.filter((el)=> el.name!=='product')
+      }
+    },
   },
 };
 </script>
