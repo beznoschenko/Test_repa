@@ -11,12 +11,15 @@ export default{
     mutations: {
         registerUser(state, userData) {
             state.users.push(userData)
-            console.log(state.users)
         },
         login(state, name) {
             state.logined.status = true
             state.logined.name = name
             this.commit('moduleSession/createToken')
+            let timerId = setTimeout(() => {
+                this.commit('moduleUsers/logout')}, 
+            5*60*1000)
+
         },
         logout(state) {
             this.commit('moduleSession/removeToken')
