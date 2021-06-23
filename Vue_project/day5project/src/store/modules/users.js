@@ -16,7 +16,7 @@ export default{
             state.logined.status = true
             state.logined.name = name
             this.commit('moduleSession/createToken')
-            let timerId = setTimeout(() => {
+            setTimeout(() => {
                 this.commit('moduleUsers/logout')}, 
             5*60*1000)
 
