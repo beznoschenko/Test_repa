@@ -1,6 +1,6 @@
 <template>
       <div class="wrappers">
-          <product-card v-for="(item, index) in product" :key="index" :dataProduct="item" v-model="checkData" @click.native="this.$router.push({ name: 'product', params:{id: id}})" /> 
+          <product-card v-for="(item, index) in product" :key="index" :dataProduct="item" v-model="checkData" @click.native="$router.push({ name: 'product', params:{id: index}})" /> 
  
       </div>
 </template>
