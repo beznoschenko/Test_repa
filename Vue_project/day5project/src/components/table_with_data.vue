@@ -31,7 +31,7 @@ export default {
   props: {
     querydata: {
       type: Array,
-      default: () => [],
+      default: () => ([]),
     },
   },
   data() {

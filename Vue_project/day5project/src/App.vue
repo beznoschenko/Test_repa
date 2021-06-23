@@ -56,7 +56,7 @@ export default {
         return this.routes.filter((el)=> el.name!=='product')
       }
     },
-  },
+  }
 };
 </script>
 

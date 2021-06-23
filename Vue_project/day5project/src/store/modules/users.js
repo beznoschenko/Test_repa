@@ -16,13 +16,15 @@ export default{
         login(state, name) {
             state.logined.status = true
             state.logined.name = name
+            this.commit('moduleSession/createToken')
         },
         logout(state) {
+            this.commit('moduleSession/removeToken')
             state.logined.status = false;
             delete state.logined.name;
 
         },
 
-    },
+    }, 
     actions:{}
 }
