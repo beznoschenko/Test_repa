@@ -39,12 +39,11 @@ export default {
   },
   methods: {
     checkData() {
-      let userData = this.$store.getters['moduleUsers/getUser'].find(el => el.email===this.user.email)
-      console.log(userData)
+      let userData = this.$store.getters['moduleUsers/getUsers'].find(el => el.email===this.user.email)
       if (
         userData.email === this.user.email && userData.password === this.user.password
       ) {
-        this.$store.commit("moduleUsers/login", this.user.email);
+        this.$store.commit("moduleUsers/login", userData);
         this.$router.push("/");
       } else {
         this.error = "Incorrect data";

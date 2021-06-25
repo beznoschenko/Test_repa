@@ -12,7 +12,7 @@ export default{
         },
         addComment(state, payload) {
             let now_date = new Date().toLocaleString()
-            let status = this.state.moduleUsers.logined.name
+            let status = this.state.moduleUsers.logined.user.f_name
             state.products[payload.index].comments.push({ user: status, comment: payload.text, date: now_date })
         },
         clearComments(state, index) {

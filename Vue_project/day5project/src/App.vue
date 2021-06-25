@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper">
+    
     <!-- <span>First Name</span>
     <custom-input v-model="inputText.f_name" :maxlength="5"/>
     <br />
@@ -37,6 +38,8 @@ export default {
   data() {
     return {
       routes,
+     
+
       //menu_data: ["Home", "Category", "Products"],
       // maxVal: 100,
       // minVal: 0,
@@ -53,7 +56,7 @@ export default {
         return this.routes.filter((el) => el.meta.visible);
       }
       else{
-        return this.routes.filter((el)=> el.name!=='product')
+        return this.routes.filter((el)=> el.name!=='product' && el.name!=='edit')
       }
     },
   }

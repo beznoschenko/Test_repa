@@ -1,7 +1,8 @@
 <template>
       <div class="wrappers">
+
           <product-card v-for="(item, index) in product" :key="index" :dataProduct="item" v-model="checkData" @click.native="$router.push({ name: 'product', params:{id: index}})" /> 
- 
+  
       </div>
 </template>
 
@@ -16,6 +17,7 @@ export default {
     data() {
     return {
       checkData: {},
+      tet: ''
       
     };
   },
@@ -30,7 +32,6 @@ export default {
     this.$store.commit('moduleProduct/loadData', products.datas)
     
   }
-
 }
 </script>
 
@@ -42,5 +43,4 @@ export default {
   flex-direction: row;
   align-items: flex-start;
 }
-
 </style>

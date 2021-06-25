@@ -153,6 +153,7 @@ export default {
   },
   mounted() {
     const _this = this;
+    _this.inputValue = this.value
     _this.$emit("input", _this.inputValue);
   },
 };

@@ -4,7 +4,7 @@ import Login from '../pages/sign_in_page'
 import Registration from '../pages/sign_up_page'
 import TabelPage from '../pages/table_page'
 import RecursivePage from '../pages/recursive_page'
-import store from '../store'
+import EditingPage from '../pages/edit_user_data_page'
 const routes = [
     {
         path: '/',
@@ -40,6 +40,14 @@ const routes = [
         meta:{
             visible: true
 
+        }
+    },
+    {
+        path: '/edit',
+        name: 'edit',
+        component: EditingPage,
+        meta:{
+            visible: true
         }
     },
     {
